@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mp3MusicPlayer.controller.StartAppController">
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mp3MusicPlayer.controller.MainPaneController">
    <top>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>

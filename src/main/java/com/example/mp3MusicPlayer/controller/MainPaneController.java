@@ -41,29 +41,6 @@ public class MainPaneController {
     private Slider progressSlider;
 
     public void initialize() {
-        configureButtons();
-        configureVolume();
-    }
-
-    private void configureVolume() {
-        volumeSlider.addEventFilter(MouseEvent.MOUSE_PRESSED, event ->{
-            System.out.println("Volume Slider works!");
-        });
-    }
-
-    private void configureButtons() {
-        previousButton.setOnAction(event -> {
-            System.out.println("Previous song");
-        });
-        nextButton.setOnAction(event -> {
-            System.out.println("Next song");
-        });
-        playButton.setOnAction(event -> {
-            if(playButton.isSelected()) {
-                System.out.println("Play");
-            } else {
-                System.out.println("Stop");
-            }
-        });
+        System.out.println("MainPane created");
     }
 }

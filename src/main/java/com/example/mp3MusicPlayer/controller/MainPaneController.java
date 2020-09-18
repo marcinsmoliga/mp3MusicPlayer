@@ -9,38 +9,18 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 
 public class MainPaneController {
-
     @FXML
-    private MenuItem fileMenuItem;
-
+    private ControlPaneController controlPaneController;
     @FXML
-    private MenuItem directoryMenuItem;
-
+    private ContentPaneController contentPaneController;
     @FXML
-    private MenuItem closeMenuItem;
+    private MenuPaneController menuPaneController;
 
-    @FXML
-    private MenuItem aboutMenuItem;
-
-    @FXML
-    private TableView<?> contentTable;
-
-    @FXML
-    private Button previousButton;
-
-    @FXML
-    private ToggleButton playButton;
-
-    @FXML
-    private Button nextButton;
-
-    @FXML
-    private Slider volumeSlider;
-
-    @FXML
-    private Slider progressSlider;
 
     public void initialize() {
         System.out.println("MainPane created");
+        System.out.println(contentPaneController);
+        System.out.println(controlPaneController);
+        System.out.println(menuPaneController);
     }
 }

@@ -26,6 +26,7 @@ public class ControlPaneController {
 	public void initialize() {
 		configureButtons();
 		configureVolume();
+		configureSliders();
 	}
 
 	private void configureVolume() {
@@ -48,6 +49,14 @@ public class ControlPaneController {
 				System.out.println("Stop");
 			}
 		});
+	}
+
+	private void configureSliders() {
+		volumeSlider.valueProperty().addListener((observable, oldValue, newValue) ->
+				System.out.println("Change of volume " + newValue.doubleValue()));
+
+		progressSlider.valueProperty().addListener(x ->
+				System.out.println("Song shift"));
 	}
 
 }

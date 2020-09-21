@@ -5,4 +5,5 @@ module mp3MusicPlayer {
 
     exports com.example.mp3MusicPlayer.app to javafx.graphics;
     opens com.example.mp3MusicPlayer.controller to javafx.fxml;
+    opens com.example.mp3MusicPlayer.mp3 to javafx.base;
 }

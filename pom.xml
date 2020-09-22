@@ -31,6 +31,12 @@
             <version>${javafx.verion}</version>
         </dependency>
         <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>${javafx.verion}</version>
+        </dependency>
+
+        <dependency>
             <groupId>net.sf.javamusictag</groupId>
             <artifactId>jid3lib</artifactId>
             <version>0.5.4</version>

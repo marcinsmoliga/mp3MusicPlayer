@@ -29,6 +29,26 @@ public class ControlPaneController {
 		configureSliders();
 	}
 
+	public Button getPreviousButton() {
+		return previousButton;
+	}
+
+	public ToggleButton getPlayButton() {
+		return playButton;
+	}
+
+	public Button getNextButton() {
+		return nextButton;
+	}
+
+	public Slider getVolumeSlider() {
+		return volumeSlider;
+	}
+
+	public Slider getProgressSlider() {
+		return progressSlider;
+	}
+
 	private void configureVolume() {
 		volumeSlider.addEventFilter(MouseEvent.MOUSE_PRESSED, event ->{
 			System.out.println("Volume Slider works!");

@@ -22,6 +22,10 @@ public class ContentPaneController {
 	@FXML
 	private TableView<Mp3Song> contentTable;
 
+	public TableView<Mp3Song> getContentTable() {
+		return contentTable;
+	}
+
 	public void initialize() {
 		configureTableColumns();
 		createTestData();

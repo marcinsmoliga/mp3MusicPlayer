@@ -6,16 +6,21 @@ import java.io.IOException;
 import org.farng.mp3.MP3File;
 import org.farng.mp3.TagException;
 
+import com.example.mp3MusicPlayer.mp3.Mp3Parser;
 import com.example.mp3MusicPlayer.mp3.Mp3Song;
 import com.example.mp3MusicPlayer.player.Mp3Player;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class MainPaneController {
@@ -31,7 +36,40 @@ public class MainPaneController {
         createPlayer();
         configureTableClick();
         configureButtons();
-        addTestMp3();
+        configureMenu();
+    }
+
+    private void configureMenu() {
+        MenuItem openFile = menuPaneController.getFileMenuItem();
+        MenuItem openDir = menuPaneController.getDirectoryMenuItem();
+
+        openFile.setOnAction(event -> {
+            FileChooser fc = new FileChooser();
+            fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Mp3","*.mp3"));
+            File file = fc.showOpenDialog(new Stage());
+            try {
+                contentPaneController.getContentTable().getItems().add(Mp3Parser.createMp3Song(file));
+                showMessage("The file " + file.getName() + " was successfully loaded");
+            } catch (Exception e) {
+                showMessage("The file " + file.getName() + " cannot be opened");
+            }
+        });
+
+        openDir.setOnAction(event -> {
+            DirectoryChooser dc = new DirectoryChooser();
+            File dir = dc.showDialog(new Stage());
+            try {
+                contentPaneController.getContentTable().getItems().addAll(Mp3Parser.createMp3List(dir));
+                showMessage("Files have been loaded from a directory " + dir.getName());
+            } catch (Exception e) {
+                showMessage("An error occurred while reading files from the directory " + dir.getName());
+
+            }
+        });
+    }
+
+    private void showMessage(String message) {
+        controlPaneController.getMessageTextField().setText(message);
     }
 
     private void createPlayer() {

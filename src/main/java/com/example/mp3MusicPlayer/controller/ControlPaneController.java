@@ -3,6 +3,7 @@ package com.example.mp3MusicPlayer.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 
@@ -22,6 +23,9 @@ public class ControlPaneController {
 
 	@FXML
 	private Slider progressSlider;
+
+	@FXML
+	private TextField messageTextField;
 
 	public void initialize() {
 		configureButtons();
@@ -47,6 +51,10 @@ public class ControlPaneController {
 
 	public Slider getProgressSlider() {
 		return progressSlider;
+	}
+
+	public TextField getMessageTextField() {
+		return messageTextField;
 	}
 
 	private void configureVolume() {

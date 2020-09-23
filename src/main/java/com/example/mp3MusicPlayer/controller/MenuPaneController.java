@@ -1,7 +1,16 @@
 package com.example.mp3MusicPlayer.controller;
 
+import java.io.IOException;
+
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
+import javafx.stage.Stage;
 
 public class MenuPaneController {
 
@@ -17,8 +26,43 @@ public class MenuPaneController {
 	@FXML
 	private MenuItem aboutMenuItem;
 
+	public MenuItem getFileMenuItem() {
+		return fileMenuItem;
+	}
+
+	public MenuItem getDirectoryMenuItem() {
+		return directoryMenuItem;
+	}
+
+	public MenuItem getCloseMenuItem() {
+		return closeMenuItem;
+	}
+
+	public MenuItem getAboutMenuItem() {
+		return aboutMenuItem;
+	}
+
 	public void initialize() {
-		System.out.println("MenuPane created");
+		configureMenu();
+	}
+
+	private void configureMenu() {
+		closeMenuItem.setOnAction(event -> Platform.exit());
+		aboutMenuItem.setOnAction(new EventHandler<>() {
+			@Override
+			public void handle(ActionEvent event) {
+				try {
+					Parent parent = FXMLLoader.load(getClass().getResource("/fxml/aboutPane.fxml"));
+					Scene scene = new Scene(parent);
+					Stage stage = new Stage();
+					stage.setTitle("Mp3Player - about");
+					stage.setScene(scene);
+					stage.show();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 }
